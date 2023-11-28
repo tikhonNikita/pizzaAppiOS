@@ -10,7 +10,7 @@ import Foundation
 /// An example of a static model that trickles down data through a view hierarchy, but does not change.
 class MenuModel{
     
-    struct Menu:Codable{
+    struct Menu: Codable {
         var menu:[MenuItem]
     }
     
@@ -22,13 +22,13 @@ class MenuModel{
         }
     }
     
-    func decodeJSON(data:Data!)-> Menu! {
+    func decodeJSON(data:Data!) -> Menu! {
         var menu:Menu! = nil
         let decoder = JSONDecoder()
         do{
             try menu = decoder.decode(Menu.self, from: data)
-        } catch let error as NSError{
-        print("Error reading JSON file: \(error.localizedDescription)")
+        } catch let error as NSError {
+            print("Error reading JSON file: \(error.localizedDescription)")
         }
         return menu
     }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310BEF172B10ED8300578029 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310BEF162B10ED8300578029 /* StatusBarView.swift */; };
+		310BEF192B150EBB00578029 /* OrderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310BEF182B150EBB00578029 /* OrderItemView.swift */; };
 		310CBF542B0E67D800012EC9 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310CBF502B0E67D800012EC9 /* OrderModel.swift */; };
 		310CBF552B0E67D800012EC9 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310CBF512B0E67D800012EC9 /* MenuItem.swift */; };
 		310CBF562B0E67D800012EC9 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310CBF522B0E67D800012EC9 /* OrderItem.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		310BEF162B10ED8300578029 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
+		310BEF182B150EBB00578029 /* OrderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemView.swift; sourceTree = "<group>"; };
 		310CBF502B0E67D800012EC9 /* OrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		310CBF512B0E67D800012EC9 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		310CBF522B0E67D800012EC9 /* OrderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			children = (
 				31956AC52AFE99E00095EC37 /* PizzaApp.swift */,
 				31956AC72AFE99E00095EC37 /* ContentView.swift */,
+				310BEF182B150EBB00578029 /* OrderItemView.swift */,
 				31956AF12B029FB40095EC37 /* OrderView.swift */,
 				310CBF4F2B0E67D800012EC9 /* Model Code */,
 				31956AFB2B02A09B0095EC37 /* HeaderView.swift */,
@@ -139,6 +144,7 @@
 				31956AF92B02A05B0095EC37 /* OrderRowView.swift */,
 				31956AC92AFE99E20095EC37 /* Assets.xcassets */,
 				31956ACB2AFE99E20095EC37 /* Preview Content */,
+				310BEF162B10ED8300578029 /* StatusBarView.swift */,
 			);
 			path = Pizza;
 			sourceTree = "<group>";
@@ -305,9 +311,11 @@
 				31956AC62AFE99E00095EC37 /* PizzaApp.swift in Sources */,
 				310CBF562B0E67D800012EC9 /* OrderItem.swift in Sources */,
 				314129D02B06884D00344408 /* RatingsView.swift in Sources */,
+				310BEF192B150EBB00578029 /* OrderItemView.swift in Sources */,
 				31956AF82B02A0490095EC37 /* MenuRowView.swift in Sources */,
 				31956AFA2B02A05B0095EC37 /* OrderRowView.swift in Sources */,
 				310CBF572B0E67D800012EC9 /* MenuModel.swift in Sources */,
+				310BEF172B10ED8300578029 /* StatusBarView.swift in Sources */,
 				310CBF552B0E67D800012EC9 /* MenuItem.swift in Sources */,
 				31956AF62B02A02E0095EC37 /* MenuItemView.swift in Sources */,
 				31956AFC2B02A09B0095EC37 /* HeaderView.swift in Sources */,

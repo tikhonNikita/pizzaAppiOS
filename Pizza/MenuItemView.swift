@@ -10,16 +10,18 @@ import SwiftUI
 struct MenuItemView: View {
     
     @State private var isItemAdded: Bool = false
+    @Binding var item: MenuItem
+    @ObservedObject var orderModel: OrderModel
     
     var body: some View {
         VStack {
             HStack {
-                Text("Margherita Huli Pizza")
+                Text(item.name)
                     .font(.title)
                     .fontWeight(.semibold)
                     .foregroundStyle(.ultraThickMaterial)
                     .padding(.leading)
-                if let image = UIImage(named: "0_lg")  {
+                if let image = UIImage(named: "\(item.id)_lg")  {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
@@ -39,19 +41,20 @@ struct MenuItemView: View {
             
             VStack(alignment: .leading) {
                 ScrollView {
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin odio dui, eu laoreet sem scelerisque ut. Nam sit amet nunc vel risus ultricies ultrices ut porta massa. Aenean nec arcu nec eros venenatis volutpat. Mauris at metus sed diam pulvinar commodo. Sed pretium mi enim, nec consectetur nisi ultrices.")
+                    Text(item.description)
                         .font(.custom("Georgia", size: 18, relativeTo: .body))
                 }
             }
             
             Button {
-                isItemAdded.toggle()
+                orderModel.addOrder(item, quantity: 1)
             } label: {
                 Spacer()
-                Text(12.99, format: .currency(code: "EUR"))
+                Text(item.price, format: .currency(code: "EUR"))
                 Image(systemName: isItemAdded ? "cart.badge.plus" : "cart.fill.badge.plus")
                 Spacer()
             }
+            .disabled(item.id < 0)
             .padding(4)
             .font(.body)
             .fontWeight(.semibold)
@@ -60,11 +63,12 @@ struct MenuItemView: View {
             .shadow(radius: 5)
             .cornerRadius(5)
             .frame(maxWidth: .infinity)
-
+            
         }
     }
 }
 
 #Preview {
-    MenuItemView()
+    MenuItemView(item: .constant(testMenuItem),
+                 orderModel: OrderModel())
 }
