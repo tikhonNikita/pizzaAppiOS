@@ -63,6 +63,12 @@ class OrderModel : ObservableObject {
     func removeLast(){
         orderItems.removeLast()
     }
+    
+    func replaceOreder(id: Int, order: OrderItem) -> Void {
+        if let index = orderItems.firstIndex(where: {$0.id == id}) {
+            orderItems[index] = order
+        }
+    }
 }
 
 

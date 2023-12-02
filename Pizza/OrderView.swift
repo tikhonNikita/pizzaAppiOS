@@ -12,25 +12,17 @@ struct OrderView: View {
     
     var body: some View {
         VStack {
-            ZStack(alignment: .top) {
-                ScrollView {
-                    ForEach($orderModel.orderItems) { order in
-                        OrderRowView(order: order)
-                            .padding([.leading, .trailing, .bottom], 5)
+                NavigationStack {
+                    List($orderModel.orderItems) { $order in
+                        NavigationLink(value: order) {
+                            OrderRowView(order: $order)
+                                .padding([.leading, .trailing, .bottom], 5)
+                        }.navigationDestination(for: OrderItem.self, destination: {order in OrderDetailView(orderItem: $order, presentSheet: .constant(false), newOrder: .constant(false))})
+                            .navigationTitle("Order")
                         
                     }
                 }
                 .padding(.top, 70)
-                HStack {
-                    Text("Order Pizza")
-                        .font(.title)
-                    Spacer()
-                }
-                .padding()
-                .background(.ultraThinMaterial)
-            }
-            .padding()
-            
             Button("Delete") {
                 if !orderModel.orderItems.isEmpty {
                     orderModel.orderItems.removeLast()

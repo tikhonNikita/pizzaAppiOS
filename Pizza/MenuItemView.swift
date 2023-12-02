@@ -11,6 +11,11 @@ struct MenuItemView: View {
     
     @State private var isItemAdded: Bool = false
     @Binding var item: MenuItem
+    @State var presentAlert = false
+    
+    @State private var newOrder: Bool = true
+    @State private var order = noOrderItem
+    
     @ObservedObject var orderModel: OrderModel
     
     var body: some View {
@@ -47,7 +52,8 @@ struct MenuItemView: View {
             }
             
             Button {
-                orderModel.addOrder(item, quantity: 1)
+                order = OrderItem(id: 999, item: item)
+                presentAlert = true
             } label: {
                 Spacer()
                 Text(item.price, format: .currency(code: "EUR"))
@@ -63,7 +69,21 @@ struct MenuItemView: View {
             .shadow(radius: 5)
             .cornerRadius(5)
             .frame(maxWidth: .infinity)
-            
+            .sheet(isPresented: $presentAlert) {
+                isItemAdded = true
+            } content: {
+                OrderDetailView(orderItem: $order, presentSheet: $presentAlert, newOrder: $newOrder
+                )
+            }
+//            .alert("Buy a \(item.name)", isPresented: $presentAlert){
+//                Button("No", role: .cancel){}
+//                Button("Yes") {
+//                    orderModel.addOrder(item, quantity: 1)
+//                }
+//                Button("Make it a double") {
+//                    orderModel.addOrder(item, quantity: 2)
+//                }
+//            }
         }
     }
 }
@@ -71,4 +91,5 @@ struct MenuItemView: View {
 #Preview {
     MenuItemView(item: .constant(testMenuItem),
                  orderModel: OrderModel())
+    .environmentObject(OrderModel())
 }
